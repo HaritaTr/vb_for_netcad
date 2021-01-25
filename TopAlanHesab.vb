@@ -1,4 +1,4 @@
-' Açıklama : Seçilen alan objelerinin toplam alanını vermeyi sağlayan makro.
+' Seçilen alan objelerinin toplam alanını veren makro.
 
 Sub Main
 Dim i,sayi,secim,obje,alan
