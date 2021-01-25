@@ -4,7 +4,7 @@ Sub Main
 Dim i,sayi,secim,obje,alan
   with Netcad
     Set secim=.NewSelectionset
-    secim.SELECT "Lütfen alan toplamlarını hesaplamak istediğiniz alan objelerini seçiniz.", Array(opline)
+    secim.SELECT "Alan toplamlarını hesaplamak istediğiniz alan objelerini seçiniz.", Array(opline)
     If .EscPressed then Exit Sub
     sayi=secim.NE-1
     alan=0
