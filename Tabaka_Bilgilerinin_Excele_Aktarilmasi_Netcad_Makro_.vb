@@ -1,8 +1,3 @@
-                       '' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 function main
  dim file,fso,str,arr,excSheet,excLine
@@ -12,16 +7,16 @@ function main
  set excSheet = CreateObject("Excel.Application")
  excSheet.workbooks.add
  excLine = 2
- excSheet.cells(1,1) ="Harita Akademi Netcad Makroları İle Üretilmiştir."
- excSheet.cells(2,1) ="Tabaka Adı"
+ excSheet.cells(1,1) ="Harita Akademi Netcad MakrolarÃ½ Ãle ÃœretilmiÃ¾tir."
+ excSheet.cells(2,1) ="Tabaka AdÃ½"
  excSheet.cells(2,2) ="Tabaka Rengi"
  excSheet.cells(2,3) ="Tabaka Rengi RGB"
- excSheet.cells(2,4) ="Tabaka Açık"
- excSheet.cells(2,5) ="Tabaka Görünür"
+ excSheet.cells(2,4) ="Tabaka AÃ§Ã½k"
+ excSheet.cells(2,5) ="Tabaka GÃ¶rÃ¼nÃ¼r"
  excSheet.cells(2,6) ="Tabaka Kilit"
- excSheet.cells(2,7) ="Tabaka Yazıcı Gönder"
- excSheet.cells(2,8) ="Tabaka Baş. Ölçeği"
- excSheet.cells(2,9) ="Tabaka Bit. Ölçeği"
+ excSheet.cells(2,7) ="Tabaka YazÃ½cÃ½ GÃ¶nder"
+ excSheet.cells(2,8) ="Tabaka BaÃ¾. Ã–lÃ§eÃ°i"
+ excSheet.cells(2,9) ="Tabaka Bit. Ã–lÃ§eÃ°i"
 
 with ncLayermanager
  for i = 0 to .numLayer-1
@@ -38,8 +33,8 @@ with ncLayermanager
 
 next
  excSheet.cells(excLine+1,1) =".........................................................................."
- excSheet.cells(excLine+2,1) ="Harita Akademi, Şaban GÜL"
- excSheet.cells(excLine+3,1) ="Daha fazlası için haritaakademi@gmail.com"
+ excSheet.cells(excLine+2,1) ="Harita Akademi, Ãaban GÃœL"
+ excSheet.cells(excLine+3,1) ="Daha fazlasÃ½ iÃ§in haritaakademi@gmail.com"
  end with
  excSheet.visible = True
  set fso = nothing
