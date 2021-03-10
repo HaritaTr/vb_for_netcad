@@ -1,9 +1,3 @@
-' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
-
 Sub Main
 Dim i,ada,o
  with Netcad
@@ -21,6 +15,6 @@ next
  .netcadcommand("REGENSINGLE " & .GetCurrentWindow.cll.y & "," &.GetCurrentWindow.cll.x & " " & .GetCurrentWindow.cur.y & "," & .GetCurrentWindow.cur.x)
 set ada=nothing
 .BackMessage 
-msgbox " Alan Adı Gösterimi Tamamlandı [Harita Akademi, Şaban GÜL]",64 ," Tebrikler [Harita Akademi, Şaban GÜL]"
+msgbox " Alan AdÄ± GÃ¶sterimi TamamlandÄ± [Harita Akademi, Åaban GÃœL]",64 ," Tebrikler [Harita Akademi, Åaban GÃœL]"
  end with
 End Sub
