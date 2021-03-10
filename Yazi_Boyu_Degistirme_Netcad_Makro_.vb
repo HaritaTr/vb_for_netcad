@@ -1,8 +1,3 @@
-' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
 
@@ -15,15 +10,15 @@ Dim obj
 
 
 
-set BD = Netcad.NewBDialog("Yazı Boyunun Değiştirilmesi [Harita Akademi, Şaban GÜL]")
+set BD = Netcad.NewBDialog("YazÃ½ Boyunun DeÃ°iÃ¾tirilmesi [Harita Akademi, Ãaban GÃœL]")
 
-BD.Getfloat "item","Yeni Yazı Boyu:",2,1
+BD.Getfloat "item","Yeni YazÃ½ Boyu:",2,1
 
 if BD.showmodal then
 
 set selection = .NewSelectStatus
 
-while .SelectObjectInstant("BOYU DEĞİŞECEK YAZI GRUBUNA AİT BİR YAZI OBJESİ SEÇİNİZ",1,array(otext),selection)
+while .SelectObjectInstant("BOYU DEÃÃÃECEK YAZI GRUBUNA AÃT BÃR YAZI OBJESÃ SEÃ‡ÃNÃZ",1,array(otext),selection)
  set obj = selection.objects(0)
  .DrawObject obj,blue
 
