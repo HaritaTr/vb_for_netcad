@@ -1,8 +1,4 @@
-'' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
+
 function layer_select(list,index)
 dim tara,ad
 with netcad
@@ -25,8 +21,8 @@ pagecount=round(index/pagediv,0)
 if pagecount=0 then pagecount=1
 pagestart=1
 for page=1 to pagecount
-set dialog = Netcad.NewBDialog("Tabaka Sil ["&pagestart&" - "&pagestart+pagediv&" arası] [Harita Akademi, Şaban GÜL]")
-dialog.PutPrompt " Aşağıdan Seçilen Tabakalardaki Tüm Objeler Silinecektir."
+set dialog = Netcad.NewBDialog("Tabaka Sil ["&pagestart&" - "&pagestart+pagediv&" arasÃ½] [Harita Akademi, Ãaban GÃœL]")
+dialog.PutPrompt " AÃ¾aÃ°Ã½dan SeÃ§ilen Tabakalardaki TÃ¼m Objeler Silinecektir."
 for tara=pagestart to pagestart+pagediv
 if list(tara,1)<>"" then
 dialog.GetCheck "item"&tara,list(tara,1),0
