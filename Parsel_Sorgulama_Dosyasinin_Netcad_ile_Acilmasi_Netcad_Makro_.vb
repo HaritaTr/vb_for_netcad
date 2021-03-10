@@ -1,8 +1,3 @@
-         '' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
  Dim sagultabaka
@@ -101,18 +96,18 @@ for tabaka = 0 to .numlayers - 1
 
 
 
-set BD = Netcad.NewBDialog("PARSEL SORGU DOSYASI AKTARMA ,[Harita Akademi, Şaban GÜL]")
- set BD_SAGUL = Netcad.NewBDialog("PARSEL SORGU DOSYASI AKTARMA , [Harita Akademi, Şaban GÜL]")
- BD.PutPrompt "DİKKAT: İndirdiğiniz Dosyanın Koordinatları Coğrafi Koordinat Sistemindedir"
- BD.PutPrompt " Söz konusu koordinatlar aşağıdan seçilecek koordinat sistemine dönüştürülecektir."
- BD.PutPrompt " Dönüşüm yaparken tüm proje etkilenecektir. Bu nedenden dolayı bu aktarım işlemini"
- BD.PutPrompt " lütfen yeni proje üzerinde yapınız. "
+set BD = Netcad.NewBDialog("PARSEL SORGU DOSYASI AKTARMA ,[Harita Akademi, Ãaban GÃœL]")
+ set BD_SAGUL = Netcad.NewBDialog("PARSEL SORGU DOSYASI AKTARMA , [Harita Akademi, Ãaban GÃœL]")
+ BD.PutPrompt "DÃKKAT: ÃndirdiÃ°iniz DosyanÃ½n KoordinatlarÃ½ CoÃ°rafi Koordinat Sistemindedir"
+ BD.PutPrompt " SÃ¶z konusu koordinatlar aÃ¾aÃ°Ã½dan seÃ§ilecek koordinat sistemine dÃ¶nÃ¼Ã¾tÃ¼rÃ¼lecektir."
+ BD.PutPrompt " DÃ¶nÃ¼Ã¾Ã¼m yaparken tÃ¼m proje etkilenecektir. Bu nedenden dolayÃ½ bu aktarÃ½m iÃ¾lemini"
+ BD.PutPrompt " lÃ¼tfen yeni proje Ã¼zerinde yapÃ½nÃ½z. "
  BD.PutPrompt " "
- BD.GetFileName "sabangul","TKGM Parsel Sorgu Json Dosyasını Seçiniz...","C:\Users\USER\Downloads\Karabedran-1 Parsel (1).json","Json Dosyası|*.json|Tum Dosyalar|*.*","xls"
+ BD.GetFileName "sabangul","TKGM Parsel Sorgu Json DosyasÃ½nÃ½ SeÃ§iniz...","C:\Users\USER\Downloads\Karabedran-1 Parsel (1).json","Json DosyasÃ½|*.json|Tum Dosyalar|*.*","xls"
 
-BD.Getradio "item1","Dönüştürülecek Koordinat Sistemi (UTM3)","Dönüşüm Yapma|ED50|ITRF" ,sgul1
- BD.Getradio "item2","Dönüştürülecek Dilim Numarası","27|30|33|36|39|42|45" ,sgul2
- BD.Getradio "item3","Koordinat Dönüşümünde Projede Dönüşsün mü ? ","Hayır|Evet" ,sgul3
+BD.Getradio "item1","DÃ¶nÃ¼Ã¾tÃ¼rÃ¼lecek Koordinat Sistemi (UTM3)","DÃ¶nÃ¼Ã¾Ã¼m Yapma|ED50|ITRF" ,sgul1
+ BD.Getradio "item2","DÃ¶nÃ¼Ã¾tÃ¼rÃ¼lecek Dilim NumarasÃ½","27|30|33|36|39|42|45" ,sgul2
+ BD.Getradio "item3","Koordinat DÃ¶nÃ¼Ã¾Ã¼mÃ¼nde Projede DÃ¶nÃ¼Ã¾sÃ¼n mÃ¼ ? ","HayÃ½r|Evet" ,sgul3
  if BD.showmodal then
  xlspath = BD.ValueByName("sabangul")
 
@@ -143,17 +138,17 @@ ft.close
 
 
 
-BD_SAGUL.GetCombo "TABAKA", "Alanların Aktarılacağı Tabakayı Seçiniz", "", ha1
+BD_SAGUL.GetCombo "TABAKA", "AlanlarÃ½n AktarÃ½lacaÃ°Ã½ TabakayÃ½ SeÃ§iniz", "", ha1
  for tabaka = 0 to .numlayers - 1
  BD_SAGUL.AddCombo .LayerNameOf(tabaka)
  next
 
-BD_SAGUL.GetCombo "TABAKA1", "Tapu Bilgilerin Aktarılacağı Tabakayı Seçiniz", "", ha2
+BD_SAGUL.GetCombo "TABAKA1", "Tapu Bilgilerin AktarÃ½lacaÃ°Ã½ TabakayÃ½ SeÃ§iniz", "", ha2
  for tabaka = 0 to .numlayers - 1
  BD_SAGUL.AddCombo .LayerNameOf(tabaka)
  next
 
-BD_SAGUL.GetCombo "TABAKA2", "Alanların Aktarılacağı Tabakayı Seçiniz", "", ha3
+BD_SAGUL.GetCombo "TABAKA2", "AlanlarÃ½n AktarÃ½lacaÃ°Ã½ TabakayÃ½ SeÃ§iniz", "", ha3
  for tabaka = 0 to .numlayers - 1
  BD_SAGUL.AddCombo .LayerNameOf(tabaka)
  next
@@ -206,7 +201,7 @@ dim ahmet,furkan,uncu
 
 
 if XLSpath=-1 or XLSpath="" then
- msgbox "Dosya Seçilmedi"
+ msgbox "Dosya SeÃ§ilmedi"
  exit sub
  end if
 
@@ -383,7 +378,7 @@ asilyazi=2
  yaziboy=3
  layerno=.foundlayer("TXT_KOORDINAT")
 
-if .SelectPoint("Tablonun Yerleştirileceği Yeri Seçiniz", c, 2) then
+if .SelectPoint("Tablonun YerleÃ¾tirileceÃ°i Yeri SeÃ§iniz", c, 2) then
 
 koorx=c.x
  koorx=koorx+2
@@ -391,17 +386,17 @@ koorx=c.x
 c.x=koorx-(yaziboy)
  set yaz1=.maketext(c, adaparseli & " No'lu Parsel Bilgileri",0,0,asilyazi,0,"1",hakademi2)
  c.x=koorx-(yaziboy*2)
- set yaz2=.maketext(c, "İli: " & ili,0,0,asilyazi,0,"1",hakademi2)
+ set yaz2=.maketext(c, "Ãli: " & ili,0,0,asilyazi,0,"1",hakademi2)
  c.x=koorx-(yaziboy*3)
- set yaz3=.maketext(c, "İlçesi: " & ilcesi,0,0,asilyazi,0,"1",hakademi2)
+ set yaz3=.maketext(c, "ÃlÃ§esi: " & ilcesi,0,0,asilyazi,0,"1",hakademi2)
  c.x=koorx-(yaziboy*4)
  set yaz4=.maketext(c, "Mahallesi: " & mahallesi,0,0,asilyazi,0,"1",hakademi2)
  c.x=koorx-(yaziboy*5)
- set yaz5=.maketext(c, "Alanı: " & alani,0,0,asilyazi,0,"1",hakademi2)
+ set yaz5=.maketext(c, "AlanÃ½: " & alani,0,0,asilyazi,0,"1",hakademi2)
  c.x=koorx-(yaziboy*6)
  set yaz6=.maketext(c, "Cinsi: " & cinsi,0,0,asilyazi,0,"1",hakademi2)
  c.x=koorx-(yaziboy*7)
- set yaz7=.maketext(c, "Paftası: " & paftasi,0,0,asilyazi,0,"1",hakademi2)
+ set yaz7=.maketext(c, "PaftasÃ½: " & paftasi,0,0,asilyazi,0,"1",hakademi2)
  c.x=koorx-(yaziboy*8)
  set yaz8=.maketext(c, "Mevkiisi: " & mevkiisi,0,0,asilyazi,0,"1",hakademi2)
 
