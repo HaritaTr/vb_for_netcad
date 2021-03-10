@@ -1,8 +1,3 @@
-                                    '' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub main
 Dim i,j,o,p
@@ -10,10 +5,10 @@ Dim i,j,o,p
 dim BD
 dim sabangul
 dim elifyaren
- set BD = Netcad.NewBDialog("Kot Sıfırlama [Harita Akademi, Şaban GÜL]")
+ set BD = Netcad.NewBDialog("Kot SÃ½fÃ½rlama [Harita Akademi, Ãaban GÃœL]")
 
-BD.GetFloat "sagul1","Sabit Kot Değeri ( Sıfırlamak için 0 Yazınız) ","0" ,3
- BD.Getradio "sagul2","Çoklu Doğrudada Kot Sıfırlama Yapılsınmı ? ","Evet|Hayır" ,1
+BD.GetFloat "sagul1","Sabit Kot DeÃ°eri ( SÃ½fÃ½rlamak iÃ§in 0 YazÃ½nÃ½z) ","0" ,3
+ BD.Getradio "sagul2","Ã‡oklu DoÃ°rudada Kot SÃ½fÃ½rlama YapÃ½lsÃ½nmÃ½ ? ","Evet|HayÃ½r" ,1
 
 
  
