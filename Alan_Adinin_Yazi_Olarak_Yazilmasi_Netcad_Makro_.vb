@@ -1,9 +1,3 @@
-' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
-
 SUB Main
  DIM ss,o,i,j,oo,p,sel,poly,tabaka,yazi,a,c ,bd, secenek
  DIM kt() ,t()
@@ -11,16 +5,16 @@ SUB Main
 
 With netcad
 
-set BD = Netcad.NewBDialog("Alan Adı Yazdırma [Harita Akademi, Şaban GÜL]")
+set BD = Netcad.NewBDialog("Alan AdÄ± YazdÄ±rma [Harita Akademi, Åaban GÃœL]")
 
-'BD.Getinteger "item1","Yatay Öteleme Miktarı Giriniz:",0
- 'BD.Getinteger "item2","Dikey Öteleme Miktarı Giriniz:",0
- 'BD.GetCombo "tabaka1", "İşlem Görecek Tabaka Seçiniz: ", "0", 0
- BD.GetCombo "tabaka2", "Parsel No Hangi Tabakaya Yazılsın: ", "0", 0
+'BD.Getinteger "item1","Yatay Ã–teleme MiktarÄ± Giriniz:",0
+ 'BD.Getinteger "item2","Dikey Ã–teleme MiktarÄ± Giriniz:",0
+ 'BD.GetCombo "tabaka1", "Ä°ÅŸlem GÃ¶recek Tabaka SeÃ§iniz: ", "0", 0
+ BD.GetCombo "tabaka2", "Parsel No Hangi Tabakaya YazÄ±lsÄ±n: ", "0", 0
  for i = 1 to .numlayers - 1
  BD.AddCombo .LayerNameOf(i)
  next
- BD.Getfloat "yaziboy","Parsel Numaraların Yazı Boyu: ",2,2
+ BD.Getfloat "yaziboy","Parsel NumaralarÄ±n YazÄ± Boyu: ",2,2
 
 if BD.showmodal then
 
@@ -38,7 +32,7 @@ a=.getparam(94)*2/1000
  set poly=.newpoly
 
 .setparam beginblock,true
- if SEL.SELECT("Kapalı çoklu doğruları seç",array(opline)) then
+ if SEL.SELECT("KapalÄ± Ã§oklu doÄŸrularÄ± seÃ§",array(opline)) then
  for i = 0 to SEL.NE-1
  j = SEL.GetSelectedObject(i, o)
  set poly=.getplineext(o)
