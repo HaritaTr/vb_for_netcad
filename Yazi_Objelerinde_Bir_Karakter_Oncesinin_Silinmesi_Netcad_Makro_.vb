@@ -1,8 +1,3 @@
-'Harita Akademi Web Sayfasından İndirilmiştir
-
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 sub main
 with netcad
@@ -14,10 +9,10 @@ dim elif
 dim BD
 dim sabangul
 dim elifyaren
- set BD = Netcad.NewBDialog("Alan Objelerinin Adının Bir Kısmını Karaktere Göre Silme [Harita Akademi, Şaban GÜL]")
+ set BD = Netcad.NewBDialog("Alan Objelerinin AdÄ±nÄ±n Bir KÄ±smÄ±nÄ± Karaktere GÃ¶re Silme [Harita Akademi, Åaban GÃœL]")
 
-BD.Getstring "sagul1","Alan Objesinin Adını Ayrıştıracak Karakteri Giriniz:","/" ,1
- ' BD.Getradio "sagul2","Hangi Kısmı Silinecek","Öncesi|Sonrası" ,0
+BD.Getstring "sagul1","Alan Objesinin AdÄ±nÄ± AyrÄ±ÅŸtÄ±racak Karakteri Giriniz:","/" ,1
+ ' BD.Getradio "sagul2","Hangi KÄ±smÄ± Silinecek","Ã–ncesi|SonrasÄ±" ,0
 
 
 
@@ -30,7 +25,7 @@ BD.Getstring "sagul1","Alan Objesinin Adını Ayrıştıracak Karakteri Giriniz:","/"
 
 
 if BD.ValueByName("sagul1")="" then
- msgbox ("Herhangi bir karakter girmediniz " &chr(13)&chr(10)&"Lütfen Bir Ayraç Giriniz" &chr(13)&chr(10)&"Örnek Karakter: /" ),64,"Harita Akademi, Şaban GÜL"
+ msgbox ("Herhangi bir karakter girmediniz " &chr(13)&chr(10)&"LÃ¼tfen Bir AyraÃ§ Giriniz" &chr(13)&chr(10)&"Ã–rnek Karakter: /" ),64,"Harita Akademi, Åaban GÃœL"
  end if
 
 if BD.ValueByName("sagul2")=1 then
