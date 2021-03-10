@@ -1,15 +1,9 @@
-                                  '' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
-
 
 Sub Main
  Dim BD,by ,bz
- set BD = Netcad.NewBDialog("Nokta,Doğru ve Alanlarda Koordinat Yuvarlama [Harita Akademi, Şaban GÜL]")
- BD.GetInteger "item1","Duyarlık Giriniz: ",2
- BD.GetFloat "item2","Verilen kot değerine getir (-1 Değiştirme) ",-1,3
+ set BD = Netcad.NewBDialog("Nokta,DoÃ°ru ve Alanlarda Koordinat Yuvarlama [Harita Akademi, Ãaban GÃœL]")
+ BD.GetInteger "item1","DuyarlÃ½k Giriniz: ",2
+ BD.GetFloat "item2","Verilen kot deÃ°erine getir (-1 DeÃ°iÃ¾tirme) ",-1,3
  if BD.showmodal then
  by=BD.ValueByName("item1")
  bz=BD.ValueByName("item2")
@@ -18,23 +12,21 @@ Sub Main
  Dim i,j,o,SEL ,ad,ii,j3
  dim c1 ,x,y,y1,x1,p ,yn,xn
 
-'işlemlerin yapıldığı bölüm
-
 
 
 with netcad
- set SEL = .NewSelectionSet ' Seçim kümesi oluştur.
+ set SEL = .NewSelectionSet ' SeÃ§im kÃ¼mesi oluÃ¾tur.
  set o = .NewObject
- if SEL.SELECT("Duyarlık değişecek objeleri seçiniz...",array(opoint,oline,opline)) then ' istenen turleri kumeye ekle
+ if SEL.SELECT("DuyarlÃ½k deÃ°iÃ¾ecek objeleri seÃ§iniz...",array(opoint,oline,opline)) then ' istenen turleri kumeye ekle
  for i = 0 to SEL.NE-1
  j = SEL.GetSelectedObject(i, o)
- 'Noktalar içim
+ 'Noktalar iÃ§im
  if o.tag = 1 then
  yuvarla o.p1.y,o.p1.x,y,x,by
  o.p1.y=y
  o.p1.x=x
  end if
- 'Hatlar İçin
+ 'Hatlar ÃÃ§in
  if o.tag = 2 and by<>-1 then
  yuvarla o.p1.y,o.p1.x,y,x,by
  o.p1.y=y
@@ -43,7 +35,7 @@ with netcad
  o.p2.y=y
  o.p2.x=x
  end if
- 'Çoklu doğrular için
+ 'Ã‡oklu doÃ°rular iÃ§in
  if o.tag = 7 and by<>-1 then
  set p = .getplineext(o)
  for j3 = 0 to p.num-1
@@ -53,7 +45,7 @@ with netcad
  p.cor(j3).y=y
  p.cor(j3).x=x
  if bz<>-1 then
- p.cor(j3).z=bz 'isteğe bağlı
+ p.cor(j3).z=bz 'isteÃ°e baÃ°lÃ½
  end if
  next
  .putplineext o,p
@@ -68,8 +60,6 @@ with netcad
  set o = nothing
  end with
  end sub
-
-
 
 
 
