@@ -1,8 +1,3 @@
-       '' www.sabangul.com.tr Web Sayfasýndan Ýndirilmiþtir
-' Þaban GÜL , Harita Mühendisi
-' Her Türlü Hata, Ýstek ve Öneriler Ýçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
  with netcad
@@ -31,10 +26,10 @@ Dim i
 
 
 
-set BD = Netcad.NewBDialog("GIS Sýnýfýnýn Excelden Alýnmasý [Harita Akademi, Þaban GÜL]")
- BD.GetFileName "item1","Aktarým Yapýlacak Excel Dosyasý Seçiniz:","","Excel Dosyalari|*.xls|Tum Dosyalar|*.*","xls"
- BD.Getcombo "item2","Parsel Numarasý Hangi Sütunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,0
- BD.Getcombo "item3","GIS Sýnýfý Hangi Sütunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,1
+set BD = Netcad.NewBDialog("GIS SÃ½nÃ½fÃ½nÃ½n Excelden AlÃ½nmasÃ½ [Harita Akademi, Ãžaban GÃœL]")
+ BD.GetFileName "item1","AktarÃ½m YapÃ½lacak Excel DosyasÃ½ SeÃ§iniz:","","Excel Dosyalari|*.xls|Tum Dosyalar|*.*","xls"
+ BD.Getcombo "item2","Parsel NumarasÃ½ Hangi SÃ¼tunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,0
+ BD.Getcombo "item3","GIS SÃ½nÃ½fÃ½ Hangi SÃ¼tunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,1
 
 if BD.showmodal then
  xlspath = BD.ValueByName("item1")
@@ -134,7 +129,7 @@ set SEL = .NewSelectionSet
 
 
 
-if SEL.SELECT("CokluDogru,Alan,Nokta ve Yazý Objelerini Seçiniz...",array(opline,oline,opoint,otext)) then
+if SEL.SELECT("CokluDogru,Alan,Nokta ve YazÃ½ Objelerini SeÃ§iniz...",array(opline,oline,opoint,otext)) then
 
 for i = 0 to SEL.NE-1
  j = SEL.GetSelectedObject(i, o)
@@ -159,6 +154,6 @@ set SEL = nothing
  set o = nothing
  end with
 
-MSGBOX R & " adet Parselin GIS Sýnýfý Deðiþtirildi."
+MSGBOX R & " adet Parselin GIS SÃ½nÃ½fÃ½ DeÃ°iÃ¾tirildi."
 
 end sub
