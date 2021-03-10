@@ -1,9 +1,3 @@
-' www.sabangul.com.tr Web Sayfasýndan Ýndirilmiþtir
-' Þaban GÜL , Harita Mühendisi
-' Her Türlü Hata, Ýstek ve Öneriler Ýçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
-
 
 Sub Main
 Dim i
@@ -12,12 +6,12 @@ dim layerno
 dim BD
 dim sagul
 
-set BD = Netcad.NewBDialog("GRID VE GRIDKOOR Tabakalarýnýn ismine datum ismi ekle,[Harita Akademi, Þaban GÜL]")
+set BD = Netcad.NewBDialog("GRID VE GRIDKOOR TabakalarÄ±nÄ±n ismine datum ismi ekle,[Harita Akademi, Åžaban GÃœL]")
 
 BD.Getradio "item1","Eklenecek Metin Giriniz","ED50|ITRF|MEVZII" ,0
- BD.GetString "item","Bir Ayraç Giriniz","_",1
+ BD.GetString "item","Bir AyraÃ§ Giriniz","_",1
  BD.PutPrompt " "
- BD.PutPrompt " DÝKKAT!"&chr(13)&chr(10)&" GRID ve GRIDKOOR tabakalarýnýn ismi deðiþecek"
+ BD.PutPrompt " DÄ°KKAT!"&chr(13)&chr(10)&" GRID ve GRIDKOOR tabakalarÄ±nÄ±n ismi deÄŸiÅŸecek"
  BD.PutPrompt " "
 
 
@@ -70,6 +64,6 @@ end with
 dim elif1,elif2
 elif1= "GRID" & BD.ValueByName("item") & sagul
 elif2= "GRIDKOOR" & BD.ValueByName("item") & sagul
-msgbox ("Ýþlem Baþarýyla Tamamlandý." &chr(13)&chr(10)&"GRID Tabakasýnýn Ýsmi " & elif1 & chr(13)&chr(10)&" GRIDKOOR Tabakasýnýn Ýsmi " & elif2 & " olmuþtur." ),64,"Harita Akademi, Þaban GÜL"
+msgbox ("Ä°ÅŸlem BaÅŸarÄ±yla TamamlandÄ±." &chr(13)&chr(10)&"GRID TabakasÄ±nÄ±n Ä°smi " & elif1 & chr(13)&chr(10)&" GRIDKOOR TabakasÄ±nÄ±n Ä°smi " & elif2 & " olmuÅŸtur." ),64,"Harita Akademi, Åžaban GÃœL"
 
 End Sub
