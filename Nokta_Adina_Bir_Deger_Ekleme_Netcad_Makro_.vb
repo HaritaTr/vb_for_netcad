@@ -1,8 +1,3 @@
-'' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
 
@@ -14,15 +9,15 @@ Dim i
 
 with Netcad
 
-set BD = Netcad.NewBDialog("Nokta İsimlerini Bir Miktar Artırma [Harita Akademi, Şaban GÜL]")
+set BD = Netcad.NewBDialog("Nokta Ä°simlerini Bir Miktar ArtÄ±rma [Harita Akademi, Åaban GÃœL]")
 
-BD.Getinteger "item","Artış Miktarı Giriniz:",0
- BD.GetCombo "tabaka", "İşlem Görecek Tabaka Seçiniz: ", "0", 0
+BD.Getinteger "item","ArtÄ±ÅŸ MiktarÄ± Giriniz:",0
+ BD.GetCombo "tabaka", "Ä°ÅŸlem GÃ¶recek Tabaka SeÃ§iniz: ", "0", 0
  for i = 1 to .numlayers-1
  BD.AddCombo .LayerNameOf(i)
  next
 
-BD.GetCheck "tabaka2", "Tüm Tabakalarda İşlem Yapılsın",0
+BD.GetCheck "tabaka2", "TÃ¼m Tabakalarda Ä°ÅŸlem YapÄ±lsÄ±n",0
 
 
 
