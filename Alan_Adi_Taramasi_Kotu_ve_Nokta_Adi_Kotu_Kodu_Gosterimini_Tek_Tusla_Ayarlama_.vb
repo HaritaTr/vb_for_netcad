@@ -1,20 +1,20 @@
 Sub Main
 
 with netcad
-'' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
+'' www.sabangul.com.tr Web SayfasÄ±ndan Ä°ndirilmiÅŸtir
+' Åaban GÃœL , Harita MÃ¼hendisi
+' Her TÃ¼rlÃ¼ Hata, Ä°stek ve Ã–neriler Ä°Ã§in 
 ' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
+' adresine durumu anlatan bir e-posta gÃ¶nderiniz.
       .setparam 25,1     ' nokta ad
       .setparam 26,0     ' nokta kot
       .setparam 27,0     ' nokta kod
-      .setparam 28,1     ' alan adı
+      .setparam 28,1     ' alan adÄ±
       .setparam 29,0     ' alan kotu
       .setparam 30,0     ' alan tarama
       .setparam 31,0     ' balastro
-      .setparam 32,0     ' kalın obje çizimi
-' Seçeneklerde = 1 için evet 0 için hayır.
+      .setparam 32,0     ' kalÄ±n obje Ã§izimi
+' SeÃ§eneklerde = 1 iÃ§in evet 0 iÃ§in hayÄ±r.
  end with
  end sub
 
