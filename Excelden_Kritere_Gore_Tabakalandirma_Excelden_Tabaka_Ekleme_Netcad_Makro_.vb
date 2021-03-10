@@ -1,11 +1,3 @@
-'' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
-
-
-
 
 Sub Main
  with netcad
@@ -36,13 +28,13 @@ Dim i
 
 
 
-set BD = Netcad.NewBDialog("Excelden Kritere Göre Tabakalandırma [Harita Akademi, Şaban GÜL]")
- BD.GetFileName "item1","Aktarım Yapılacak Excel Dosyası Seçiniz:","","Excel Dosyalari|*.xls|Tum Dosyalar|*.*","xls"
- BD.Getcombo "item2","Parsel Numarası Hangi Sütunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,0
- BD.Getcombo "item3","Tabakalandırılacak Kriter Hangi Sütunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,1
- BD.Getcheck "item4","Tabakaları Gruplandır.(@...)" ,1
- BD.GetString "item5", "Grup Adı", "sagul", 5
- BD.GetString "item6", "Boş Değerlerin Alınacağı Tabaka", "BOŞ_DEĞER", 10
+set BD = Netcad.NewBDialog("Excelden Kritere GÃ¶re TabakalandÃ½rma [Harita Akademi, Ãaban GÃœL]")
+ BD.GetFileName "item1","AktarÃ½m YapÃ½lacak Excel DosyasÃ½ SeÃ§iniz:","","Excel Dosyalari|*.xls|Tum Dosyalar|*.*","xls"
+ BD.Getcombo "item2","Parsel NumarasÃ½ Hangi SÃ¼tunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,0
+ BD.Getcombo "item3","TabakalandÃ½rÃ½lacak Kriter Hangi SÃ¼tunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,1
+ BD.Getcheck "item4","TabakalarÃ½ GruplandÃ½r.(@...)" ,1
+ BD.GetString "item5", "Grup AdÃ½", "sagul", 5
+ BD.GetString "item6", "BoÃ¾ DeÃ°erlerin AlÃ½nacaÃ°Ã½ Tabaka", "BOÃ_DEÃER", 10
  if BD.showmodal then
  xlspath = BD.ValueByName("item1")
  RUHANGUL=BD.ValueByName("item4")
@@ -136,7 +128,7 @@ FOR U=1 TO 100000
 
 
 
-MSGBOX CL-1 & " Adet Parsel Excel Dosyasından Başarıyla Okundu. Lütfen İşlem Görecek Parselleri Seçiniz."
+MSGBOX CL-1 & " Adet Parsel Excel DosyasÃ½ndan BaÃ¾arÃ½yla Okundu. LÃ¼tfen ÃÃ¾lem GÃ¶recek Parselleri SeÃ§iniz."
 
 
 
@@ -169,8 +161,8 @@ sabangul=0
  sabangul=sabangul+1
  next
  if sabangul>254 then
- msgbox ("Tabaka Sayısı Netcad'in Sınırını Aşmak Üzere!!" &chr(13)&chr(10)&" Lütfen projenizi inceleyiniz veya tabakaları azaltınız" ),64,"Harita Akademi, Şaban GÜL"
- msgbox ("Proje ve Veri Güvenliği İçin İşleme Devam Edilmeyecektir." &chr(13)&chr(10)&"Tabakaları azaltıp tekrar deneyiniz." ),64,"Harita Akademi, Şaban GÜL"
+ msgbox ("Tabaka SayÃ½sÃ½ Netcad'in SÃ½nÃ½rÃ½nÃ½ AÃ¾mak Ãœzere!!" &chr(13)&chr(10)&" LÃ¼tfen projenizi inceleyiniz veya tabakalarÃ½ azaltÃ½nÃ½z" ),64,"Harita Akademi, Ãaban GÃœL"
+ msgbox ("Proje ve Veri GÃ¼venliÃ°i ÃÃ§in ÃÃ¾leme Devam Edilmeyecektir." &chr(13)&chr(10)&"TabakalarÃ½ azaltÃ½p tekrar deneyiniz." ),64,"Harita Akademi, Ãaban GÃœL"
  exit sub
  end if
 
@@ -184,7 +176,7 @@ with Netcad
 
 
 
-if SEL.SELECT("Lütfen İşlem Görecek Parselleri Seçiniz...",array(opline)) then
+if SEL.SELECT("LÃ¼tfen ÃÃ¾lem GÃ¶recek Parselleri SeÃ§iniz...",array(opline)) then
 
 for i = 0 to SEL.NE-1
  j = SEL.GetSelectedObject(i, o)
@@ -221,6 +213,6 @@ set SEL = nothing
  set o = nothing
  end with
  end with
- MSGBOX R & " adet Parselin Tabakası Değiştirildi."
+ MSGBOX R & " adet Parselin TabakasÃ½ DeÃ°iÃ¾tirildi."
  end sub
  
