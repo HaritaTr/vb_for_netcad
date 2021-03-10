@@ -11,33 +11,24 @@ with nclayermanager
 .add 0,4
 end with  
 
-set SAGUL_DLG = Netcad.NewBDialog("Alan Objelerinde Bilgi Yazdırma , [Şaban GÜL, Harita Akademi]")
+set SAGUL_DLG = Netcad.NewBDialog("Alan Objelerinde Bilgi YazdÃ½rma , [Ãaban GÃœL, Harita Akademi]")
 
-      SAGUL_DLG.GetRadio "elif", "Hangi Bilgiyi Yazdırayım ?", "Hesap Alanı|Tapu Alanı|Gıs Sınıfı|Gıs Adı|Tabakası|Alan Adı", 0
-      SAGUL_DLG.GetCombo "yaren", "Hangi Tabakaya Yazayım ?", 0,0
+      SAGUL_DLG.GetRadio "elif", "Hangi Bilgiyi YazdÃ½rayÃ½m ?", "Hesap AlanÃ½|Tapu AlanÃ½|GÃ½s SÃ½nÃ½fÃ½|GÃ½s AdÃ½|TabakasÃ½|Alan AdÃ½", 0
+      SAGUL_DLG.GetCombo "yaren", "Hangi Tabakaya YazayÃ½m ?", 0,0
            for i = 1 to .numlayers - 1
          SAGUL_DLG.AddCombo .LayerNameOf(i)
      next
-      SAGUL_DLG.Getfloat "yaziboy","Yazı boyu kaç olsun ? ",2,2
-      SAGUL_DLG.GetCheck "sagulnet1", "Yazı İtalik Olsun", 0
-      SAGUL_DLG.GetCheck "sagulnet2", "Yazı Altçizgili Olsun", 0
-      SAGUL_DLG.GetCheck "sagulnet3", "Yazı Arka Fon Olsun", 0
+      SAGUL_DLG.Getfloat "yaziboy","YazÃ½ boyu kaÃ§ olsun ? ",2,2
+      SAGUL_DLG.GetCheck "sagulnet1", "YazÃ½ Ãtalik Olsun", 0
+      SAGUL_DLG.GetCheck "sagulnet2", "YazÃ½ AltÃ§izgili Olsun", 0
+      SAGUL_DLG.GetCheck "sagulnet3", "YazÃ½ Arka Fon Olsun", 0
 
-
-
-
-
-' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 
 
    if SAGUL_DLG.showmodal then
 
-     saban1=    SAGUL_DLG.ValueByName("elif")   'tür
+     saban1=    SAGUL_DLG.ValueByName("elif")   'tÃ¼r
      saban2=    SAGUL_DLG.ValueByName("yaren")  'tabaka
      saban3=    SAGUL_DLG.ValueByName("yaziboy") 'boyu
 
@@ -58,7 +49,7 @@ set SAGUL_DLG = Netcad.NewBDialog("Alan Objelerinde Bilgi Yazdırma , [Şaban GÜL,
                  set poly=.newpoly
 
                 .setparam beginblock,true
-                if SEL.SELECT("Kapalı çoklu doğruları seç, Şaban GÜL, Harita Akademi",array(opline)) then
+                if SEL.SELECT("KapalÃ½ Ã§oklu doÃ°rularÃ½ seÃ§, Ãaban GÃœL, Harita Akademi",array(opline)) then
                  for i = 0 to SEL.NE-1
                  saban3=saban3/1000*saban_olcek
                    j = SEL.GetSelectedObject(i, o)
@@ -88,11 +79,6 @@ set SAGUL_DLG = Netcad.NewBDialog("Alan Objelerinde Bilgi Yazdırma , [Şaban GÜL,
       if   elif1=0 and  elif2=1 and elif3=1 then .AddObject (.MakeText (c,saban4, 2+4,0, saban3,0,"M",.CreateLayer(saban2,2)))
       if   elif1=1 and  elif2=1 and elif3=1 then .AddObject (.MakeText (c,saban4, 1+2+4,0, saban3,0,"M",.CreateLayer(saban2,2)))
 
- ' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
                  next
                  .setparam endblock,true
