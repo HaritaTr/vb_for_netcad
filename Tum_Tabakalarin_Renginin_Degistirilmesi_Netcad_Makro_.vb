@@ -1,9 +1,3 @@
-' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
-
 
 Sub Main
  Dim i
@@ -15,9 +9,9 @@ Sub Main
 
 
 
-set BD = Netcad.NewBDialog("Tüm Tabakaların Renginin Değiştirilmesi [Harita Akademi, Şaban GÜL]")
+set BD = Netcad.NewBDialog("TÃ¼m TabakalarÄ±n Renginin DeÄŸiÅŸtirilmesi [Harita Akademi, Åaban GÃœL]")
  BD.Getfloat "sagulnet","Renk Kodu Giriniz ( Siyah:0 )",0,0
- BD.GETCHECK "sagulnet2","Kilitli Tabakalarda Yapılmasın",1
+ BD.GETCHECK "sagulnet2","Kilitli Tabakalarda YapÄ±lmasÄ±n",1
  if BD.showmodal then
  ruhan=round(BD.ValueByName("sagulnet"),0)
  elifyaren=BD.ValueByName("sagulnet2")
