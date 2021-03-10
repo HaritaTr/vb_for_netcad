@@ -1,20 +1,15 @@
-                                                    '' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 sub main
  dim secim,c,layerno,obj,yaz1,yaz2,yaz3,yaz4,top,o,sagul,sel,i,j,elifyaren ,yazi,ruhan,gulailesi ,saban,kop
  Dim BD
  with netcad
  on error resume next
- set BD = Netcad.NewBDialog(" Seçilen Objedeki Yazıları Toplama [Harita Akademi, Şaban GÜL]")
+ set BD = Netcad.NewBDialog(" SeÃ§ilen Objedeki YazÄ±larÄ± Toplama [Harita Akademi, Åaban GÃœL]")
 
-BD.Getfloat "item1","Toplama Başlanacak İlk Değer: ",0,5
- BD.Getradio "item2","Proje Üzerindeki Seçim Türü","Tek Tek Seçim|Toplu Seçim" ,1
- BD.Getradio "item3","Seçilenleri SAGUL_YAZITOPLA Tabakasına Al","Evet|Hayır" ,1
- BD.Getradio "item4","Sonuç Gösterimi","Sadece Mesaj Olarak Göster|Sonucu Ekrada Yazdır|Hem Mesaj Göster Hem Ekrana Yazdır" ,0
+BD.Getfloat "item1","Toplama BaÅŸlanacak Ä°lk DeÄŸer: ",0,5
+ BD.Getradio "item2","Proje Ãœzerindeki SeÃ§im TÃ¼rÃ¼","Tek Tek SeÃ§im|Toplu SeÃ§im" ,1
+ BD.Getradio "item3","SeÃ§ilenleri SAGUL_YAZITOPLA TabakasÄ±na Al","Evet|HayÄ±r" ,1
+ BD.Getradio "item4","SonuÃ§ GÃ¶sterimi","Sadece Mesaj Olarak GÃ¶ster|Sonucu Ekrada YazdÄ±r|Hem Mesaj GÃ¶ster Hem Ekrana YazdÄ±r" ,0
 
 if BD.showmodal then
  sagul=1
@@ -33,7 +28,7 @@ sagul= BD.ValueByName("item2")
 top= BD.ValueByName("item1")
  set yazi = .NewSelectStatus
 
-while .SelectObjectInstant ("Toplam yapılacak yazıları seçiniz. İşlem tamamlandıktan sonra fare ile sağ tıklayınız",1,array(otext),yazi)
+while .SelectObjectInstant ("Toplam yapÄ±lacak yazÄ±larÄ± seÃ§iniz. Ä°ÅŸlem tamamlandÄ±ktan sonra fare ile saÄŸ tÄ±klayÄ±nÄ±z",1,array(otext),yazi)
  set o = yazi.objects(0)
  kop=top
  top=top+o.s
@@ -57,7 +52,7 @@ if sagul=1 then
 top= BD.ValueByName("item1")
  set SEL = .NewSelectionSet ' Yeni kume yarat
  set o = .NewObject
- if SEL.SELECT("Toplam Yapılacak Yazıları Seçiniz",array(otext)) then ' istenen turleri kumeye ekle
+ if SEL.SELECT("Toplam YapÄ±lacak YazÄ±larÄ± SeÃ§iniz",array(otext)) then ' istenen turleri kumeye ekle
  for i = 0 to SEL.NE-1 ' kumenin her bir elemani icin
  j = SEL.GetSelectedObject(i, o) ' objeyi ve gercek indeksini al
  kop=top
@@ -95,7 +90,7 @@ set c = nothing
 
 if ruhan=0 or ruhan=2 then
  saban= round(top/gulailesi ,2)
- msgbox ("Seçilen Değerler Toplamı: "& top &chr(13)&chr(10)&" Toplam " & gulailesi & " tane seçildi." &chr(13)&chr(10)&" Ortalama= " & saban ),64,"Harita Akademi, Şaban GÜL"
+ msgbox ("SeÃ§ilen DeÄŸerler ToplamÄ±: "& top &chr(13)&chr(10)&" Toplam " & gulailesi & " tane seÃ§ildi." &chr(13)&chr(10)&" Ortalama= " & saban ),64,"Harita Akademi, Åaban GÃœL"
 
 
 
@@ -106,7 +101,7 @@ if ruhan=1 or ruhan=2 then
  set c = .newc(0,0,0)
  set yazi = .NewSelectStatus
 
-if .SelectPoint("Nokta seç", c, 2) then
+if .SelectPoint("Nokta seÃ§", c, 2) then
  set yaz1=.maketext(c,top,0,0,2,0,"1",.createlayer("ROL_CEPHE_1",4))
  .addobject(yaz1)
  end if
