@@ -15,18 +15,13 @@ Dim max,min,elif ,sabangul
 dim xls, xlspath,alan,DEG,CL, bd, U,V,R,W,ruhangul, elifyaren
 dim saban,ruhan
 dim ss
-'Şaban GÜL Tarafından Üretilmiştir. Telif hakkı gereği bu satırı ve alttaki satırları silmeyiniz.
-'Bu Makro PlusCAD ile üretilmiştir. Daha fazla bilgi için www.sabangul.com.tr adresini ziyaret ediniz
-'Makro istiyorsanız bize ileti gönderiniz. E-posta: sagulnet@gmail.com 
-'
-'
-'
-'
+
+ 
 with netcad
 
 
  set ss = .NewSelectStatus ' Anlik Secim objesi yarat
- while .SelectObjectInstant("Seçtiğiniz Objenin Tabakası Kapatılacaktır.",1,array(),ss)
+ while .SelectObjectInstant("SeÃ§tiÄŸiniz Objenin TabakasÄ± KapatÄ±lacaktÄ±r.",1,array(),ss)
  set o = ss.objects(0) ' Secim objesinin ilk objesini al
  saban= o.tabaka
 
@@ -44,5 +39,5 @@ End With
    .setcurrentlayer(0)
  end with
 
-MsgBox "İşlem Başarıyla Tamamlandı", 0, "Şaban GÜL, Harita Mühendisi"
+MsgBox "Ä°ÅŸlem BaÅŸarÄ±yla TamamlandÄ±", 0, "Åaban GÃœL, Harita MÃ¼hendisi"
 end SUB
