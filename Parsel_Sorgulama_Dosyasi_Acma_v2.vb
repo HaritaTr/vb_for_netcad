@@ -1,8 +1,3 @@
-﻿'' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
 
