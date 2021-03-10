@@ -1,8 +1,3 @@
-                    '' www.sabangul.com.tr Web Sayfasýndan Ýndirilmiþtir
-' Þaban GÜL , Harita Mühendisi
-' Her Türlü Hata, Ýstek ve Öneriler Ýçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
 
@@ -12,32 +7,32 @@ with netcad
  Dim Olcek,tapu,hesap,mfark,tecviz,tecviz1,tecviz2,tecdur
  olcek=.getparam(94)
 
-set SGL_DLG = Netcad.NewBDialog("Tecviz Miktarlarýnýn Yazdýrýlmasý [Harita Akademi, Þaban GÜL]")
- 'SGL_DLG.PutPrompt "----------AÞAÐIDAKÝ ALANDAN TECVÝZ PARAMETRELERÝNÝ BELÝRLEYÝNÝZ----------"
+set SGL_DLG = Netcad.NewBDialog("Tecviz MiktarlarÄ±nÄ±n YazdÄ±rÄ±lmasÄ± [Harita Akademi, Åžaban GÃœL]")
+ 'SGL_DLG.PutPrompt "----------AÅžAÄžIDAKÄ° ALANDAN TECVÄ°Z PARAMETRELERÄ°NÄ° BELÄ°RLEYÄ°NÄ°Z----------"
 
-SGL_DLG.GetCombo "tabaka", "Hangi Tabakadakiler Ýçin Uygulansýn", "Tüm Tabakalar", 0
+SGL_DLG.GetCombo "tabaka", "Hangi Tabakadakiler Ä°Ã§in UygulansÄ±n", "TÃ¼m Tabakalar", 0
  for i =0 to .numlayers - 1
  SGL_DLG.AddCombo .LayerNameOf(i)
  next
- SGL_DLG.Getfloat "sagulnet1","Ölçek Deðeri (0 için proje ölçeði esas alýnýr )",olcek,0
- SGL_DLG.Getradio "sagulnet5","Tecviz Tipi Belirleyiniz","Yapýlaþma Yok|Yapýlaþma Var" ,0
- SGL_DLG.GETCHECK "sagulnet2","Tapu Alaný Yoksa Hesap Alaný Esas Alýnsýn",1
+ SGL_DLG.Getfloat "sagulnet1","Ã–lÃ§ek DeÄŸeri (0 iÃ§in proje Ã¶lÃ§eÄŸi esas alÄ±nÄ±r )",olcek,0
+ SGL_DLG.Getradio "sagulnet5","Tecviz Tipi Belirleyiniz","YapÄ±laÅŸma Yok|YapÄ±laÅŸma Var" ,0
+ SGL_DLG.GETCHECK "sagulnet2","Tapu AlanÄ± Yoksa Hesap AlanÄ± Esas AlÄ±nsÄ±n",1
  SGL_DLG.PutPrompt " "
- 'SGL_DLG.PutPrompt "----------SONUÇLAR ÝLE ÝLGÝLÝ PARAMETRELERÝ BELÝRLEYÝNÝZ----------"
- SGL_DLG.GetCombo "tabaka2", "Tecviz Hesabý Sonucu (Tecviz Ýçinde Ýse)", "0", 0
+ 'SGL_DLG.PutPrompt "----------SONUÃ‡LAR Ä°LE Ä°LGÄ°LÄ° PARAMETRELERÄ° BELÄ°RLEYÄ°NÄ°Z----------"
+ SGL_DLG.GetCombo "tabaka2", "Tecviz HesabÄ± Sonucu (Tecviz Ä°Ã§inde Ä°se)", "0", 0
  for i =0 to .numlayers - 1
  SGL_DLG.AddCombo .LayerNameOf(i)
  next
- SGL_DLG.GetCombo "tabaka3", "Tecviz Hesabý Sonucu (Tecviz Dýþýnda Ýse)", "0", 0
+ SGL_DLG.GetCombo "tabaka3", "Tecviz HesabÄ± Sonucu (Tecviz DÄ±ÅŸÄ±nda Ä°se)", "0", 0
  for i =0 to .numlayers - 1
  SGL_DLG.AddCombo .LayerNameOf(i)
  next
 
-SGL_DLG.Getfloat "sagulnet3","Tecvizin Deðerinin Yazý Boyu",5,0
- SGL_DLG.GETCHECK "sagulnet4","Tecviz Yazý Boyu proje ölçeði ile çarpýlsýn",1
- SGL_DLG.GETCHECK "sagulnet6", "Tecviz Miktarýnýn Saðýna m² Yazýsý Ekle", 1
- SGL_DLG.GETCHECK "sagulnet7", "Tecviz Dýþýnda Ýse (D) Yazýsý Ekle", 1
- SGL_DLG.GETCHECK "sagulnet8", "Tecviz Dýþýnda Ýse Rengini Kýrmýzý Yap", 1
+SGL_DLG.Getfloat "sagulnet3","Tecvizin DeÄŸerinin YazÄ± Boyu",5,0
+ SGL_DLG.GETCHECK "sagulnet4","Tecviz YazÄ± Boyu proje Ã¶lÃ§eÄŸi ile Ã§arpÄ±lsÄ±n",1
+ SGL_DLG.GETCHECK "sagulnet6", "Tecviz MiktarÄ±nÄ±n SaÄŸÄ±na mÂ² YazÄ±sÄ± Ekle", 1
+ SGL_DLG.GETCHECK "sagulnet7", "Tecviz DÄ±ÅŸÄ±nda Ä°se (D) YazÄ±sÄ± Ekle", 1
+ SGL_DLG.GETCHECK "sagulnet8", "Tecviz DÄ±ÅŸÄ±nda Ä°se Rengini KÄ±rmÄ±zÄ± Yap", 1
  if SGL_DLG.showmodal then
  yaziboy= SGL_DLG.ValueByName("sagulnet3")
  if yaziboy<1 then yaziboy=1
@@ -93,7 +88,7 @@ if SGL_DLG.ValueByName("sagulnet5")=0 then
 
 tecviz=round(Tecviz,3)
  tecvizx=tecviz
- if SGL_DLG.ValueByName("sagulnet6")=1 then tecviz = tecviz &"m²"
+ if SGL_DLG.ValueByName("sagulnet6")=1 then tecviz = tecviz &"mÂ²"
  if SGL_DLG.ValueByName("sagulnet7")=1 and mfark> tecvizx then tecviz = tecviz &"(D)"
 
 if mfark>tecvizx then
