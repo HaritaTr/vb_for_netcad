@@ -1,8 +1,3 @@
-'' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
  Dim i
@@ -18,8 +13,8 @@ with NCLayerManager
 
 
 
-set BD = Netcad.NewBDialog("Toplu Tabaka Adı Girişi")
- BD.Getradio "item1","Bir Yöntem Seçiniz","@TANIM Girip Bağlı 10'a Kadar Tabaka Girişi|Tanımlı Tabaka Grubu Girişi|Not Defterinden Alım|LYR Dosyasından Alım" ,0
+set BD = Netcad.NewBDialog("Toplu Tabaka AdÄ± GiriÅŸi")
+ BD.Getradio "item1","Bir YÃ¶ntem SeÃ§iniz","@TANIM Girip BaÄŸlÄ± 10'a Kadar Tabaka GiriÅŸi|TanÄ±mlÄ± Tabaka Grubu GiriÅŸi|Not Defterinden AlÄ±m|LYR DosyasÄ±ndan AlÄ±m" ,0
 
 
 
@@ -32,21 +27,21 @@ if BD.SHOWMODAL then
 
 
 if sagul=0 then
- set BD0 = Netcad.NewBDialog("Toplu Tabaka Adı Girişi [Harita Akademi, Şaban GÜL]")
- BD0.GetString "item","Grup Adı Giriniz: (Enfazla 9 karakter)","SAGUL",9
- BD0.PutPrompt "Yukarıda Girdiniğiniz Grup @ ile grup yapılacak ve aşağıdakiler yazılacak."
- BD0.PutPrompt "Örneğin KAD yazdığınızda @KAD açılıp @KAD_TAB1, @KAD_TAB2 .. açılır"
+ set BD0 = Netcad.NewBDialog("Toplu Tabaka AdÄ± GiriÅŸi [Harita Akademi, Åaban GÃœL]")
+ BD0.GetString "item","Grup AdÄ± Giriniz: (Enfazla 9 karakter)","SAGUL",9
+ BD0.PutPrompt "YukarÄ±da GirdiniÄŸiniz Grup @ ile grup yapÄ±lacak ve aÅŸaÄŸÄ±dakiler yazÄ±lacak."
+ BD0.PutPrompt "Ã–rneÄŸin KAD yazdÄ±ÄŸÄ±nÄ±zda @KAD aÃ§Ä±lÄ±p @KAD_TAB1, @KAD_TAB2 .. aÃ§Ä±lÄ±r"
  BD0.PutPrompt "______________________________________________________________"
- BD0.GetString "item1","1. Tabaka Adı","",10
- BD0.GetString "item2","2. Tabaka Adı","",10
- BD0.GetString "item3","3. Tabaka Adı","",10
- BD0.GetString "item4","4. Tabaka Adı","",10
- BD0.GetString "item5","5. Tabaka Adı","",10
- BD0.GetString "item6","6. Tabaka Adı","",10
- BD0.GetString "item7","7. Tabaka Adı","",10
- BD0.GetString "item8","8. Tabaka Adı","",10
- BD0.GetString "item9","9. Tabaka Adı","",10
- BD0.GetString "item10","10. Tabaka Adı","",10
+ BD0.GetString "item1","1. Tabaka AdÄ±","",10
+ BD0.GetString "item2","2. Tabaka AdÄ±","",10
+ BD0.GetString "item3","3. Tabaka AdÄ±","",10
+ BD0.GetString "item4","4. Tabaka AdÄ±","",10
+ BD0.GetString "item5","5. Tabaka AdÄ±","",10
+ BD0.GetString "item6","6. Tabaka AdÄ±","",10
+ BD0.GetString "item7","7. Tabaka AdÄ±","",10
+ BD0.GetString "item8","8. Tabaka AdÄ±","",10
+ BD0.GetString "item9","9. Tabaka AdÄ±","",10
+ BD0.GetString "item10","10. Tabaka AdÄ±","",10
 
 if BD0.SHOWMODAL then
  .Add "@" & BD0.ValueByName("item"),3
@@ -66,9 +61,9 @@ if BD0.SHOWMODAL then
  end if
 
 if sagul=1 then
- set BD1 = Netcad.NewBDialog("Toplu Tabaka Adı Girişi [Harita Akademi, Şaban GÜL] ")
- BD1.PutPrompt "Yukarıda Girdiniğiniz Grup @ ile grup yapılacak ve aşağıdakiler yazılacak."
- BD1.Getradio "item1","Bir Yöntem Seçiniz","@KAD,KAD_ADA,KAD_PARSEL,KAD_PAFTA|@PLAN,@PLAN_KUZEY...|@KAMU,KAMU_A,KAMU_B,KAMU_C|@TRM,TRM_SAHIS,TRM_MALIYE,TRM_ORMAN|@2B,2B_NOKTA,2B_CIZGI" ,0
+ set BD1 = Netcad.NewBDialog("Toplu Tabaka AdÄ± GiriÅŸi [Harita Akademi, Åaban GÃœL] ")
+ BD1.PutPrompt "YukarÄ±da GirdiniÄŸiniz Grup @ ile grup yapÄ±lacak ve aÅŸaÄŸÄ±dakiler yazÄ±lacak."
+ BD1.Getradio "item1","Bir YÃ¶ntem SeÃ§iniz","@KAD,KAD_ADA,KAD_PARSEL,KAD_PAFTA|@PLAN,@PLAN_KUZEY...|@KAMU,KAMU_A,KAMU_B,KAMU_C|@TRM,TRM_SAHIS,TRM_MALIYE,TRM_ORMAN|@2B,2B_NOKTA,2B_CIZGI" ,0
  if BD1.SHOWMODAL then
  if BD1.ValueByName("item1")=0 THEN
  .Add "@KAD",1
@@ -143,16 +138,16 @@ if BD1.ValueByName("item1")=4 THEN
  end if
 
 if sagul=11 then
- Msgbox "Bu menü sadece Uzman Kullanıcı Grupları tarafından açılabilir."
+ Msgbox "Bu menÃ¼ sadece Uzman KullanÄ±cÄ± GruplarÄ± tarafÄ±ndan aÃ§Ä±labilir."
 
 
 
 end if
 
 if sagul=2 then
- ' Msgbox "Bu menü sadece Uzman Kullanıcı Grupları tarafından açılabilir."
- set SGL = Netcad.NewBDialog("Dosya Seç [Harita Akademi, Şaban GÜL] ")
- SGL.GetFileName "item7","Text Dosyasını Seçiniz...","","Text Dosyalari|*.txt|Tum Dosyalar|*.*","txt"
+ ' Msgbox "Bu menÃ¼ sadece Uzman KullanÄ±cÄ± GruplarÄ± tarafÄ±ndan aÃ§Ä±labilir."
+ set SGL = Netcad.NewBDialog("Dosya SeÃ§ [Harita Akademi, Åaban GÃœL] ")
+ SGL.GetFileName "item7","Text DosyasÄ±nÄ± SeÃ§iniz...","","Text Dosyalari|*.txt|Tum Dosyalar|*.*","txt"
  if SGL.showmodal then
  SAGUL = SGL.ValueByName("item7")
  else
@@ -178,9 +173,9 @@ Do While Not f.AtEndOfStream
  end if
 
 if sagul=3 then
- ' Msgbox "Bu menü sadece Uzman Kullanıcı Grupları tarafından açılabilir."
- set SGL = Netcad.NewBDialog("Dosya Seç... [Harita Akademi, Şaban GÜL] ")
- SGL.GetFileName "item7","LYR Dosyasını Seçiniz...","","LYR Dosyalari|*.LYR|Tum Dosyalar|*.*","LYR"
+ ' Msgbox "Bu menÃ¼ sadece Uzman KullanÄ±cÄ± GruplarÄ± tarafÄ±ndan aÃ§Ä±labilir."
+ set SGL = Netcad.NewBDialog("Dosya SeÃ§... [Harita Akademi, Åaban GÃœL] ")
+ SGL.GetFileName "item7","LYR DosyasÄ±nÄ± SeÃ§iniz...","","LYR Dosyalari|*.LYR|Tum Dosyalar|*.*","LYR"
  if SGL.showmodal then
  SAGUL = SGL.ValueByName("item7")
  else
