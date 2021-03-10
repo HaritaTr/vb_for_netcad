@@ -1,26 +1,21 @@
-                 '' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
  Dim obj,BD,BD2,sagul,i,RUHAN,j,o,SS,SEL
  with Netcad
 
-set BD = Netcad.NewBDialog("Tapu Alanlarının Sıfırlanması [Harita Akademi, Şaban GÜL]")
+set BD = Netcad.NewBDialog("Tapu AlanlarÄ±nÄ±n SÄ±fÄ±rlanmasÄ± [Harita Akademi, Åaban GÃœL]")
 
 
 
-BD.Getradio "sagulnet","Bir Yöntem Seçiniz","Tüm Projedeki Alan Objeleri|Bir Tabakadaki Alan Objeleri|Ekrandan Tek Tek Seçilen Alan Objeleri| Seçim Kümesi Oluşturarak Alan Seç" ,0
+BD.Getradio "sagulnet","Bir YÃ¶ntem SeÃ§iniz","TÃ¼m Projedeki Alan Objeleri|Bir Tabakadaki Alan Objeleri|Ekrandan Tek Tek SeÃ§ilen Alan Objeleri| SeÃ§im KÃ¼mesi OluÅŸturarak Alan SeÃ§" ,0
 
 
 
 if BD.showmodal then
  sagul= BD.ValueByName("sagulnet")
  if sagul=1 then
- set BD2 = Netcad.NewBDialog("Tapu Alanlarının Sıfırlanması [Harita Akademi, Şaban GÜL]")
- BD2.GetCombo "tabaka", "Alanların bulunduğu tabakayı seçiniz : ", 0, 0
+ set BD2 = Netcad.NewBDialog("Tapu AlanlarÄ±nÄ±n SÄ±fÄ±rlanmasÄ± [Harita Akademi, Åaban GÃœL]")
+ BD2.GetCombo "tabaka", "AlanlarÄ±n bulunduÄŸu tabakayÄ± seÃ§iniz : ", 0, 0
  for i = 1 to .numlayers - 1
  BD2.AddCombo .LayerNameOf(i)
  next
@@ -42,7 +37,7 @@ end if
 
 if sagul=2 then
  set ss = .NewSelectStatus ' Anlik Secim objesi yarat
- while .SelectObjectInstant("Tapu Alanı Sıfırlanacak Alanları Seç",1,array(oPline),ss)
+ while .SelectObjectInstant("Tapu AlanÄ± SÄ±fÄ±rlanacak AlanlarÄ± SeÃ§",1,array(oPline),ss)
  set o = ss.objects(0) ' Secim objesinin ilk objesini al
  o.tarea=0 ' rengini sari yap
  .PutObject ss.indexs(0), o ' objeyi geri koy
@@ -60,7 +55,7 @@ if sagul=3 then
  with Netcad
  set SEL = .NewSelectionSet ' Yeni kume yarat
  set o = .NewObject
- if SEL.SELECT("Tapu Alanı Sıfırlanacak Alan Kümesini Seç",array(opline)) then ' istenen turleri kumeye ekle
+ if SEL.SELECT("Tapu AlanÄ± SÄ±fÄ±rlanacak Alan KÃ¼mesini SeÃ§",array(opline)) then ' istenen turleri kumeye ekle
  for i = 0 to SEL.NE-1 ' kumenin her bir elemani icin
  j = SEL.GetSelectedObject(i, o) ' objeyi ve gercek indeksini al
  o.tarea = 0 ' rengini sari yap
