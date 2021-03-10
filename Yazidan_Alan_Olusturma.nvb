@@ -1,0 +1,79 @@
+' www.sabangul.com.tr Web Sayfasýndan Ýndirilmiþtir
+' Þaban GÜL , Harita Mühendisi
+' Her Türlü Hata, Ýstek ve Öneriler Ýçin
+' haritaakademi@gmail.com veya sagulnet@gmail.com
+' adresine durumu anlatan bir e-posta gönderiniz.
+
+SUB Main
+Dim SAGUL_DLG,i,alanlar,yazilar,parsel,YaziYazdir,ruhan,elif,sabangul
+with netcad
+set SAGUL_DLG = .NewBDialog("Alan Ýçindeki Yazýlarý Alan Adý Yapma [Þaban GÜL, Harita Mühendisi]")
+SAGUL_DLG.GetCombo"sagul1","Alanlar Hangi Tabakada ?", "",1
+for i = 0 to .numlayers - 1
+SAGUL_DLG.AddCombo .LayerNameOf(i)
+next
+SAGUL_DLG.GetCombo"sagul2","Yazýlar Hangi Tabakada ?", "", 1
+for i = 0 to .numlayers - 1
+SAGUL_DLG.AddCombo .LayerNameOf(i)
+next
+SAGUL_DLG.Getcheck "sagul3","Alan Adý Deðiþenleri 0_DEGISEN tabakasýna al", 0
+if SAGUL_DLG.showmodal then
+alanlar=SAGUL_DLG.ValueByName("sagul1")
+yazilar=SAGUL_DLG.ValueByName("sagul2")
+
+if SAGUL_DLG.ValueByName("sagul3") = 1 then
+with nclayermanager
+.add "0_DEGISEN",4
+end with
+end if
+ sabangul= SAGUL_DLG.ValueByName("sagul3")
+if alanlar="" then
+Msgbox "Alan Tabakasý Bulunamadý",0,"Dikkat!"
+Exit Sub
+End if
+if yazilar="" then
+Msgbox "Yazý Tabakasý Bulunamadý" ,0,"Dikkat!"
+Exit Sub
+End if
+' www.sabangul.com.tr Web Sayfasýndan Ýndirilmiþtir
+' Þaban GÜL , Harita Mühendisi
+' Her Türlü Hata, Ýstek ve Öneriler Ýçin
+' haritaakademi@gmail.com veya sagulnet@gmail.com
+' adresine durumu anlatan bir e-posta gönderiniz.
+
+set SAGUL_DLG = Nothing
+.SetFilter nothing, array(alanlar), array(opline)
+for i = 0 to .numobject-1
+.BackMessage
+set parsel = .getobject(i) ' i. objeyi al
+if parsel.tabaka=alanlar and parsel.tag = opline then 'parsel.tag = opline and 
+YaziYazdir= parsel.pname
+.SetMessage YaziYazdir
+.SetFilter .ObjectExtends(Parsel), array(yazilar), array(otext) 
+Do
+set ruhan= .GetNextObject
+if ruhan is nothing then
+exit do
+else
+set elif=.GetPlineExt(parsel)
+if elif.InPoly(ruhan.p1) then
+parsel.pname=ruhan.s
+if sabangul = 1 then
+parsel.tabaka= .foundlayer("0_DEGISEN")
+end if
+.PutObject i, parsel
+end if
+end if
+set ruhan = nothing 
+Loop
+.ResetFilter
+end if
+set parsel=nothing
+next
+.ResetFilter
+
+msgbox"Ýþlem Baþarýyla Tamamlanmýþtýr",0,"www.sabangul.com.tr"
+end if
+end with
+
+END SUB

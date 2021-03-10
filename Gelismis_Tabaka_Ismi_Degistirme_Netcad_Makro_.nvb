@@ -1,0 +1,75 @@
+'' www.sabangul.com.tr Web Sayfasýndan Ýndirilmiþtir
+' Þaban GÜL , Harita Mühendisi
+' Her Türlü Hata, Ýstek ve Öneriler Ýçin 
+' haritaakademi@gmail.com veya sagulnet@gmail.com
+' adresine durumu anlatan bir e-posta gönderiniz.
+
+Sub Main
+ Dim i,BD,BD2
+ dim sagul,sagul2
+ dim sabangul1,sabangul2,sabangul3,sabangul4,sabangul5
+ dim sabangul,elifyaren
+ with Netcad
+
+set BD2 = Netcad.NewBDialog("Tabaka Ýsmi Deðiþtirme [Harita Akademi, Þaban GÜL]")
+
+
+
+BD2.PutPrompt "Yapýlan Ýþlemde Öncelikle Tabaka Ýsminin baþýna"
+ BD2.PutPrompt "Sonra Sonuna, en son Bul Deðiþtir iþlemleri yapýlýr. "
+ BD2.PutPrompt "Metin Ekleme en fazla 3 karakter sýnýrýndadýr"
+ BD2.PutPrompt " "
+ BD2.PutPrompt "NETCADDE TABAKA ADI EN FAZLA 20 KARAKTERDÝR."
+ BD2.PutPrompt " "
+
+if BD2.showmodal then
+ else
+ exit sub
+ end if
+
+
+
+set BD = Netcad.NewBDialog("Geliþmiþ Nokta Ýsmi Deðiþtirme [Harita Akademi, Þaban GÜL]")
+
+BD.PutPrompt "Tabaka Adýnýn Baþýna ve Sonuna Metin Ekleme"
+ BD.Getstring "elifyaren1","Baþýna Ekle:","", 3
+ BD.Getstring "elifyaren2","Sonuna Ekle:","", 3
+ BD.PutPrompt " "
+ BD.PutPrompt "Tabaka Adýnda Bul Deðiþtir Yapma"
+ BD.Getstring "elifyaren3","Eski Metin:","", 50
+ BD.Getstring "elifyaren4","Yeni Metin:","", 50
+ BD.PutPrompt " "
+
+
+
+
+
+if BD.showmodal then
+ sabangul1= BD.ValueByName("elifyaren1")
+ sabangul2= BD.ValueByName("elifyaren2")
+ sabangul3= BD.ValueByName("elifyaren3")
+ sabangul4= BD.ValueByName("elifyaren4")
+
+
+
+for i= 0 to .NumLayers-1
+
+with nclayermanager
+ elifyaren=.Layer(i).name
+
+sabangul= sabangul1 & elifyaren
+ sabangul=sabangul & sabangul2
+ sabangul=replace(sabangul,sabangul3,sabangul4)
+ .Layer(i).name = sabangul
+
+end with
+
+
+
+next
+ end if
+
+end with
+
+End Sub
+ 

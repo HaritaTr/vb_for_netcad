@@ -1,0 +1,20 @@
+Sub Main
+
+with netcad
+'' www.sabangul.com.tr Web Sayfasýndan Ýndirilmiþtir
+' Þaban GÜL , Harita Mühendisi
+' Her Türlü Hata, Ýstek ve Öneriler Ýçin 
+' haritaakademi@gmail.com veya sagulnet@gmail.com
+' adresine durumu anlatan bir e-posta gönderiniz.
+      .setparam 25,1     ' nokta ad
+      .setparam 26,0     ' nokta kot
+      .setparam 27,0     ' nokta kod
+      .setparam 28,1     ' alan adý
+      .setparam 29,0     ' alan kotu
+      .setparam 30,0     ' alan tarama
+      .setparam 31,0     ' balastro
+      .setparam 32,0     ' kalýn obje çizimi
+' Seçeneklerde = 1 için evet 0 için hayýr.
+ end with
+ end sub
+

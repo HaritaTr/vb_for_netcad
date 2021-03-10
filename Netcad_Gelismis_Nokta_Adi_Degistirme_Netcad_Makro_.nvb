@@ -1,0 +1,100 @@
+Sub Main
+
+Dim i
+dim obj
+dim regpoly
+dim bd ,bd2
+dim sagul,sagul2
+dim sabangul1,sabangul2,sabangul3,sabangul4,sabangul5
+with Netcad
+
+set BD2 = Netcad.NewBDialog("Geliþmiþ Nokta Ýsmi Deðiþtirme [Harita Akademi, Þaban GÜL]")
+BD2.PutPrompt "Yapýlan Ýþlemde Öncelikle Nokta Ýsmine Sayýsal Deðer Ekleme"
+BD2.PutPrompt "Ardýndan Önce Baþýna, Sonra Sonuna Deðer Ekleme ve en son "
+BD2.PutPrompt "Bul Deðiþtir iþlemleri yapýlýr. Metin Ekleme en fazla 3 karakter sýnýrýndadýr"
+BD2.PutPrompt " "
+BD2.PutPrompt "NETCADDE NOKTA SAYISI EN FAZLA 10 KARAKTERDÝR."
+BD2.PutPrompt " "
+
+BD2.GetCombo "tabaka", "Ýþlem Görecek Tabaka Seçiniz: ", "0", 0
+for i = 1 to .numlayers-1
+BD2.AddCombo .LayerNameOf(i)
+next
+
+BD2.GetCheck "tabaka2", "Tüm Tabakalarda Ýþlem Yapýlsýn",0
+
+BD2.PutPrompt " "
+BD2.PutPrompt "Devam Etmek Ýçin Tamam Butonuna Basýnýz."
+if BD2.showmodal then
+
+else
+exit sub
+end if
+
+
+
+set BD = Netcad.NewBDialog("Geliþmiþ Nokta Ýsmi Deðiþtirme [Harita Akademi, Þaban GÜL]")
+
+BD.PutPrompt "Bir Noktanýn Baþýna ve Sonuna Metin Ekleme"
+BD.Getstring "elifyaren1","Baþýna Ekle:","", 3
+BD.Getstring "elifyaren2","Sonuna Ekle:","", 3
+BD.PutPrompt " "
+BD.PutPrompt "Bir Noktanýn Adýnda Bul Deðiþtir Yapma"
+BD.Getstring "elifyaren3","Eski Metin:","", 50
+BD.Getstring "elifyaren4","Yeni Metin:","", 50
+BD.PutPrompt " "
+BD.Getinteger "item","Nokta Ýsmine Sayýsal Deðer Ekle/Çýkart:",0
+
+
+
+sagul=BD2.ValueByName("tabaka")
+sagul2= BD2.ValueByName("tabaka2")
+if BD.showmodal then
+
+sabangul1= BD.ValueByName("elifyaren1")
+sabangul2= BD.ValueByName("elifyaren2")
+sabangul3= BD.ValueByName("elifyaren3")
+sabangul4= BD.ValueByName("elifyaren4")
+sabangul5= BD.ValueByName("item")
+if sagul2=1 then
+.SetFilter nothing, ARRAY(), ARRAY(opoint)
+else
+.SetFilter nothing, ARRAY(.FOUNDLAYER(sagul)), ARRAY(opoint)
+end if
+
+on error resume next
+DO
+SET OBJ=.GETNEXTOBJECT
+
+IF OBJ IS NOTHING THEN
+EXIT DO
+ELSE
+END IF
+
+if sabangul5=0 then
+else
+obj.pname=obj.pname+sabangul5
+end if
+
+obj.pname= sabangul1 & obj.pname
+obj.pname=obj.pname & sabangul2
+
+obj.pname=replace(obj.pname,sabangul3,sabangul4)
+
+
+
+.PUTOBJECT .CUROBJPOS,OBJ
+
+
+
+LOOP
+
+
+
+end if
+
+.netcadcommand("REGEN")
+
+end with
+
+End Sub

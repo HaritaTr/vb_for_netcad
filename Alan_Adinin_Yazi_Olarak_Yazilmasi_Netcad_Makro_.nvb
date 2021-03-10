@@ -1,0 +1,63 @@
+' www.sabangul.com.tr Web Sayfasýndan Ýndirilmiþtir
+' Þaban GÜL , Harita Mühendisi
+' Her Türlü Hata, Ýstek ve Öneriler Ýçin 
+' haritaakademi@gmail.com veya sagulnet@gmail.com
+' adresine durumu anlatan bir e-posta gönderiniz.
+
+SUB Main
+ DIM ss,o,i,j,oo,p,sel,poly,tabaka,yazi,a,c ,bd, secenek
+ DIM kt() ,t()
+ dim elif,ruhan,saban,sagul1,sagul2
+
+With netcad
+
+set BD = Netcad.NewBDialog("Alan Adý Yazdýrma [Harita Akademi, Þaban GÜL]")
+
+'BD.Getinteger "item1","Yatay Öteleme Miktarý Giriniz:",0
+ 'BD.Getinteger "item2","Dikey Öteleme Miktarý Giriniz:",0
+ 'BD.GetCombo "tabaka1", "Ýþlem Görecek Tabaka Seçiniz: ", "0", 0
+ BD.GetCombo "tabaka2", "Parsel No Hangi Tabakaya Yazýlsýn: ", "0", 0
+ for i = 1 to .numlayers - 1
+ BD.AddCombo .LayerNameOf(i)
+ next
+ BD.Getfloat "yaziboy","Parsel Numaralarýn Yazý Boyu: ",2,2
+
+if BD.showmodal then
+
+elif= BD.ValueByName("tabaka1")
+ ruhan= BD.ValueByName("tabaka2")
+ saban= BD.ValueByName("yaziboy")
+ sagul1=BD.ValueByName("item1")
+ sagul2=BD.ValueByName("item2")
+
+
+
+a=.getparam(94)*2/1000
+ set SEL = .NewSelectionSet
+ set o = .NewObject
+ set poly=.newpoly
+
+.setparam beginblock,true
+ if SEL.SELECT("Kapalý çoklu doðrularý seç",array(opline)) then
+ for i = 0 to SEL.NE-1
+ j = SEL.GetSelectedObject(i, o)
+ set poly=.getplineext(o)
+ set c = poly.CenterOfMass
+
+
+
+.AddObject (.MakeText (c,o.pname, 0,0, saban,0,"M",.CreateLayer(ruhan,2)))
+ next
+ .setparam endblock,true
+ ' .NetcadCommand("REDRAW")
+ set sel = nothing
+ set poly = nothing
+ set o = nothing
+ end if
+
+
+
+END if
+ End With
+ END SUB
+
