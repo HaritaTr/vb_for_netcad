@@ -1,8 +1,3 @@
-' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
 Dim i,BD,obj,POLY,j,lineOBJ,say
@@ -71,9 +66,9 @@ loop
 
 
 
-set BD0 = .NewBDialog("Noktaları en yakın alan objeye taşıma [Harita Akademi, Şaban GÜL]")
- BD0.GetCheck "SAGUL1", "Alanlar Herhangi Bir Tabakadadır", -1
- BD0.GetCheck "SAGUL2", "Noktalar Herhangi Bir Tabakadadır", -1
+set BD0 = .NewBDialog("NoktalarÃ½ en yakÃ½n alan objeye taÃ¾Ã½ma [Harita Akademi, Ãaban GÃœL]")
+ BD0.GetCheck "SAGUL1", "Alanlar Herhangi Bir TabakadadÃ½r", -1
+ BD0.GetCheck "SAGUL2", "Noktalar Herhangi Bir TabakadadÃ½r", -1
 
 if BD0.ShowModal then
  saban1=BD0.ValueByName("SAGUL1")
@@ -99,10 +94,10 @@ else
 
 
 
-set BD = .NewBDialog("Noktaları en yakın alan objeye taşıma [Harita Akademi, Şaban GÜL]")
+set BD = .NewBDialog("NoktalarÃ½ en yakÃ½n alan objeye taÃ¾Ã½ma [Harita Akademi, Ãaban GÃœL]")
 
 if saban1=0 then
- BD.GetCombo "PARSEL_ALAN", "Alanların bulunduğu tabakayı seçiniz : ", "0", 0
+ BD.GetCombo "PARSEL_ALAN", "AlanlarÃ½n bulunduÃ°u tabakayÃ½ seÃ§iniz : ", "0", 0
  for i = 1 to .numlayers - 1
  BD.AddCombo .LayerNameOf(i)
  next
@@ -112,7 +107,7 @@ if saban1=0 then
 
 
 if saban2=0 then
- BD.GetCombo "PARSEL_NOKTA", "Noktaların bulunduğu tabakayı seçiniz : ", "0", 0
+ BD.GetCombo "PARSEL_NOKTA", "NoktalarÃ½n bulunduÃ°u tabakayÃ½ seÃ§iniz : ", "0", 0
  for i = 1 to .numlayers - 1
  BD.AddCombo .LayerNameOf(i)
  next
@@ -122,7 +117,7 @@ if ruhangul<0.002 then
  ruhangul=0.01
  end if
  BD.GetFloat "TAMPON", "Tampon Mesafesi (Metre Cinsinden): ",ruhangul, 3
- BD.GetCheck "TAMPON2", "Mesafeyi bir sonraki işlemler için sakla", 1
+ BD.GetCheck "TAMPON2", "Mesafeyi bir sonraki iÃ¾lemler iÃ§in sakla", 1
 
 
 
@@ -133,8 +128,8 @@ if ruhangul<0.002 then
 
 
 
-' BD.GetCheck "LIMIT_BUL", "İşlem Sonrası İşlem Gören Parsellerde Limit Bul", -1
- ' BD.GetCheck "LIMIT", "İşlem Sonrası Tüm Limit Bul.", -1
+' BD.GetCheck "LIMIT_BUL", "ÃÃ¾lem SonrasÃ½ ÃÃ¾lem GÃ¶ren Parsellerde Limit Bul", -1
+ ' BD.GetCheck "LIMIT", "ÃÃ¾lem SonrasÃ½ TÃ¼m Limit Bul.", -1
 
 
 
@@ -186,11 +181,11 @@ set obj = .newobject()
  next
  '************************************
  set POLY = nothing
- .BackMessage : .setMessage "[ " & say & ". ] Alan Objesi Tarandı"
+ .BackMessage : .setMessage "[ " & say & ". ] Alan Objesi TarandÃ½"
  wend
  .ResetFilter
  set obj = nothing
- .Message 0, say & " Adet Alan İşlem Gördü.", "Belirlenen kritere göre noktalar aynı tabakada taşındı."
+ .Message 0, say & " Adet Alan ÃÃ¾lem GÃ¶rdÃ¼.", "Belirlenen kritere gÃ¶re noktalar aynÃ½ tabakada taÃ¾Ã½ndÃ½."
  end if
  .backMessage
  if BD.ValueByName("LIMIT") = 1 then .findworld
