@@ -1,8 +1,3 @@
-'' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
  Dim i,BD,BD2
@@ -11,15 +6,15 @@ Sub Main
  dim sabangul,elifyaren
  with Netcad
 
-set BD2 = Netcad.NewBDialog("Tabaka İsmi Değiştirme [Harita Akademi, Şaban GÜL]")
+set BD2 = Netcad.NewBDialog("Tabaka Ä°smi DeÄŸiÅŸtirme [Harita Akademi, Åaban GÃœL]")
 
 
 
-BD2.PutPrompt "Yapılan İşlemde Öncelikle Tabaka İsminin başına"
- BD2.PutPrompt "Sonra Sonuna, en son Bul Değiştir işlemleri yapılır. "
- BD2.PutPrompt "Metin Ekleme en fazla 3 karakter sınırındadır"
+BD2.PutPrompt "YapÄ±lan Ä°ÅŸlemde Ã–ncelikle Tabaka Ä°sminin baÅŸÄ±na"
+ BD2.PutPrompt "Sonra Sonuna, en son Bul DeÄŸiÅŸtir iÅŸlemleri yapÄ±lÄ±r. "
+ BD2.PutPrompt "Metin Ekleme en fazla 3 karakter sÄ±nÄ±rÄ±ndadÄ±r"
  BD2.PutPrompt " "
- BD2.PutPrompt "NETCADDE TABAKA ADI EN FAZLA 20 KARAKTERDİR."
+ BD2.PutPrompt "NETCADDE TABAKA ADI EN FAZLA 20 KARAKTERDÄ°R."
  BD2.PutPrompt " "
 
 if BD2.showmodal then
@@ -29,13 +24,13 @@ if BD2.showmodal then
 
 
 
-set BD = Netcad.NewBDialog("Gelişmiş Nokta İsmi Değiştirme [Harita Akademi, Şaban GÜL]")
+set BD = Netcad.NewBDialog("GeliÅŸmiÅŸ Nokta Ä°smi DeÄŸiÅŸtirme [Harita Akademi, Åaban GÃœL]")
 
-BD.PutPrompt "Tabaka Adının Başına ve Sonuna Metin Ekleme"
- BD.Getstring "elifyaren1","Başına Ekle:","", 3
+BD.PutPrompt "Tabaka AdÄ±nÄ±n BaÅŸÄ±na ve Sonuna Metin Ekleme"
+ BD.Getstring "elifyaren1","BaÅŸÄ±na Ekle:","", 3
  BD.Getstring "elifyaren2","Sonuna Ekle:","", 3
  BD.PutPrompt " "
- BD.PutPrompt "Tabaka Adında Bul Değiştir Yapma"
+ BD.PutPrompt "Tabaka AdÄ±nda Bul DeÄŸiÅŸtir Yapma"
  BD.Getstring "elifyaren3","Eski Metin:","", 50
  BD.Getstring "elifyaren4","Yeni Metin:","", 50
  BD.PutPrompt " "
