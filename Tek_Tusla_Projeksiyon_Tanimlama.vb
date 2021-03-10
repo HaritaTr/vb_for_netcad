@@ -4,8 +4,6 @@ with netcad
            
 dim pc
 set pc = Netcad.NewProjection
-''Dikkat : Datum listesine aşağıdaki adresten ulaşabilirsiniz.
-           '  http://sabangul.com.tr/nc-pro-datum
 
 '' Projeksiyon Ayarı
 '' Burada projeksiyon için bir kod giriniz
