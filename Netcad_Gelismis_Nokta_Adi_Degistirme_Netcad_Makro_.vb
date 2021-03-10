@@ -8,23 +8,23 @@ dim sagul,sagul2
 dim sabangul1,sabangul2,sabangul3,sabangul4,sabangul5
 with Netcad
 
-set BD2 = Netcad.NewBDialog("Gelişmiş Nokta İsmi Değiştirme [Harita Akademi, Şaban GÜL]")
-BD2.PutPrompt "Yapılan İşlemde Öncelikle Nokta İsmine Sayısal Değer Ekleme"
-BD2.PutPrompt "Ardından Önce Başına, Sonra Sonuna Değer Ekleme ve en son "
-BD2.PutPrompt "Bul Değiştir işlemleri yapılır. Metin Ekleme en fazla 3 karakter sınırındadır"
+set BD2 = Netcad.NewBDialog("GeliÅŸmiÅŸ Nokta Ä°smi DeÄŸiÅŸtirme [Harita Akademi, Åaban GÃœL]")
+BD2.PutPrompt "YapÄ±lan Ä°ÅŸlemde Ã–ncelikle Nokta Ä°smine SayÄ±sal DeÄŸer Ekleme"
+BD2.PutPrompt "ArdÄ±ndan Ã–nce BaÅŸÄ±na, Sonra Sonuna DeÄŸer Ekleme ve en son "
+BD2.PutPrompt "Bul DeÄŸiÅŸtir iÅŸlemleri yapÄ±lÄ±r. Metin Ekleme en fazla 3 karakter sÄ±nÄ±rÄ±ndadÄ±r"
 BD2.PutPrompt " "
-BD2.PutPrompt "NETCADDE NOKTA SAYISI EN FAZLA 10 KARAKTERDİR."
+BD2.PutPrompt "NETCADDE NOKTA SAYISI EN FAZLA 10 KARAKTERDÄ°R."
 BD2.PutPrompt " "
 
-BD2.GetCombo "tabaka", "İşlem Görecek Tabaka Seçiniz: ", "0", 0
+BD2.GetCombo "tabaka", "Ä°ÅŸlem GÃ¶recek Tabaka SeÃ§iniz: ", "0", 0
 for i = 1 to .numlayers-1
 BD2.AddCombo .LayerNameOf(i)
 next
 
-BD2.GetCheck "tabaka2", "Tüm Tabakalarda İşlem Yapılsın",0
+BD2.GetCheck "tabaka2", "TÃ¼m Tabakalarda Ä°ÅŸlem YapÄ±lsÄ±n",0
 
 BD2.PutPrompt " "
-BD2.PutPrompt "Devam Etmek İçin Tamam Butonuna Basınız."
+BD2.PutPrompt "Devam Etmek Ä°Ã§in Tamam Butonuna BasÄ±nÄ±z."
 if BD2.showmodal then
 
 else
@@ -33,17 +33,17 @@ end if
 
 
 
-set BD = Netcad.NewBDialog("Gelişmiş Nokta İsmi Değiştirme [Harita Akademi, Şaban GÜL]")
+set BD = Netcad.NewBDialog("GeliÅŸmiÅŸ Nokta Ä°smi DeÄŸiÅŸtirme [Harita Akademi, Åaban GÃœL]")
 
-BD.PutPrompt "Bir Noktanın Başına ve Sonuna Metin Ekleme"
-BD.Getstring "elifyaren1","Başına Ekle:","", 3
+BD.PutPrompt "Bir NoktanÄ±n BaÅŸÄ±na ve Sonuna Metin Ekleme"
+BD.Getstring "elifyaren1","BaÅŸÄ±na Ekle:","", 3
 BD.Getstring "elifyaren2","Sonuna Ekle:","", 3
 BD.PutPrompt " "
-BD.PutPrompt "Bir Noktanın Adında Bul Değiştir Yapma"
+BD.PutPrompt "Bir NoktanÄ±n AdÄ±nda Bul DeÄŸiÅŸtir Yapma"
 BD.Getstring "elifyaren3","Eski Metin:","", 50
 BD.Getstring "elifyaren4","Yeni Metin:","", 50
 BD.PutPrompt " "
-BD.Getinteger "item","Nokta İsmine Sayısal Değer Ekle/Çıkart:",0
+BD.Getinteger "item","Nokta Ä°smine SayÄ±sal DeÄŸer Ekle/Ã‡Ä±kart:",0
 
 
 
