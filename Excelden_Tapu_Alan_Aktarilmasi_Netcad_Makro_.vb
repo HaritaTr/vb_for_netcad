@@ -1,8 +1,3 @@
-  '' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
 
 Sub Main
  with netcad
@@ -31,11 +26,11 @@ Dim i
 
 
 
-set BD = Netcad.NewBDialog("Excelden Kritere Göre Tabakalandırma [Harita Akademi, Şaban GÜL]")
- BD.GetFileName "item1","Aktarım Yapılacak Excel Dosyası Seçiniz:","","Excel Dosyalari|*.xls|Tum Dosyalar|*.*","xls"
- BD.Getcombo "item2","Parsel Numarası Hangi Sütunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,0
- BD.Getcombo "item3","Tapu Alanı Hangi Sütunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,1
- BD.Getcheck "item4","Tapu Alanı Sıfır ise Hesap Alanını Yazdır" ,1
+set BD = Netcad.NewBDialog("Excelden Kritere GÃ¶re TabakalandÃ½rma [Harita Akademi, Ãaban GÃœL]")
+ BD.GetFileName "item1","AktarÃ½m YapÃ½lacak Excel DosyasÃ½ SeÃ§iniz:","","Excel Dosyalari|*.xls|Tum Dosyalar|*.*","xls"
+ BD.Getcombo "item2","Parsel NumarasÃ½ Hangi SÃ¼tunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,0
+ BD.Getcombo "item3","Tapu AlanÃ½ Hangi SÃ¼tunda Bulunuyor ? ","A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z" ,1
+ BD.Getcheck "item4","Tapu AlanÃ½ SÃ½fÃ½r ise Hesap AlanÃ½nÃ½ YazdÃ½r" ,1
  if BD.showmodal then
  xlspath = BD.ValueByName("item1")
  RUHANGUL=BD.ValueByName("item4")
@@ -128,7 +123,7 @@ FOR U=1 TO 100000
 
 
 
-MSGBOX CL-1 & " Adet Parsel Excel Dosyasından Başarıyla Okundu. Lütfen İşlem Görecek Parselleri Seçiniz."
+MSGBOX CL-1 & " Adet Parsel Excel DosyasÃ½ndan BaÃ¾arÃ½yla Okundu. LÃ¼tfen ÃÃ¾lem GÃ¶recek Parselleri SeÃ§iniz."
 
 
 
@@ -141,7 +136,7 @@ set SEL = .NewSelectionSet
 
 
 
-if SEL.SELECT("CokluDogru Objelerini Seçiniz...",array(opline)) then
+if SEL.SELECT("CokluDogru Objelerini SeÃ§iniz...",array(opline)) then
 
 for i = 0 to SEL.NE-1
  j = SEL.GetSelectedObject(i, o)
@@ -170,6 +165,6 @@ set SEL = nothing
  set o = nothing
  end with
 
-MSGBOX R & " adet Parselin Tapu Alanı Değiştirildi."
+MSGBOX R & " adet Parselin Tapu AlanÃ½ DeÃ°iÃ¾tirildi."
 
 end sub
