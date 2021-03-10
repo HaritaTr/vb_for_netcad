@@ -1,11 +1,3 @@
-'' www.sabangul.com.tr Web Sayfasından İndirilmiştir
-' Şaban GÜL , Harita Mühendisi
-' Her Türlü Hata, İstek ve Öneriler İçin 
-' haritaakademi@gmail.com veya sagulnet@gmail.com
-' adresine durumu anlatan bir e-posta gönderiniz.
-
-
-
 
 Sub Main
  With netcad
@@ -13,29 +5,29 @@ Sub Main
 Dim i,j,o,SEL,tx, p ,TabNo,BD1,BD2,BD3,BD4,tabakam
 
 tabakam=""
- set BD1 = Netcad.NewBDialog("Hangi Tabakada Yazdırılacağını Seçiniz [Harita Akademi, Şaban GÜL]")
- set BD2 = Netcad.NewBDialog("Tabaka Seçimi Yapınız [Harita Akademi, Şaban GÜL]")
- set BD3 = Netcad.NewBDialog("Yeni Tabaka Adı Giriniz [Harita Akademi, Şaban GÜL]")
- set BD4 = Netcad.NewBDialog("Nokta Başına Veya Sonuna Eklenecek Metin [Harita Akademi, Şaban GÜL]")
+ set BD1 = Netcad.NewBDialog("Hangi Tabakada YazdÄ±rÄ±lacaÄŸÄ±nÄ± SeÃ§iniz [Harita Akademi, Åaban GÃœL]")
+ set BD2 = Netcad.NewBDialog("Tabaka SeÃ§imi YapÄ±nÄ±z [Harita Akademi, Åaban GÃœL]")
+ set BD3 = Netcad.NewBDialog("Yeni Tabaka AdÄ± Giriniz [Harita Akademi, Åaban GÃœL]")
+ set BD4 = Netcad.NewBDialog("Nokta BaÅŸÄ±na Veya Sonuna Eklenecek Metin [Harita Akademi, Åaban GÃœL]")
 
 
 
 
 
-BD1.GetCombo "tabaka", "Parsel No Hangi Tabakaya Yazılsın: ", "0", 0
+BD1.GetCombo "tabaka", "Parsel No Hangi Tabakaya YazÄ±lsÄ±n: ", "0", 0
  for i = 1 to .numlayers - 1
  BD1.AddCombo .LayerNameOf(i)
  next
 
 
 
-BD2.Getradio "secim","Noktalar Hangi Tabakada Oluşturulsun?","Mevcut Tabakalar|Yeni Tabaka" ,0
+BD2.Getradio "secim","Noktalar Hangi Tabakada OluÅŸturulsun?","Mevcut Tabakalar|Yeni Tabaka" ,0
 
-BD3.Getstring "yenitabaka","Yeni Tabaka Adı: ","sagul_agirlik_merkezi",50
+BD3.Getstring "yenitabaka","Yeni Tabaka AdÄ±: ","sagul_agirlik_merkezi",50
 
 
 
-BD4.Getradio "metin","Noktanın Başı veya Sonuna Veri Ekleme","Herhangi İşlem Yapma ( Olduğu Gibi Bırak )|Noktanın Başına Aşağıdaki Metni Ekle|Noktanın Sonuna Aşağıdaki Metni Ekle| Noktadan Aşağıdaki Karakteri Sil" ,0
+BD4.Getradio "metin","NoktanÄ±n BaÅŸÄ± veya Sonuna Veri Ekleme","Herhangi Ä°ÅŸlem Yapma ( OlduÄŸu Gibi BÄ±rak )|NoktanÄ±n BaÅŸÄ±na AÅŸaÄŸÄ±daki Metni Ekle|NoktanÄ±n Sonuna AÅŸaÄŸÄ±daki Metni Ekle| Noktadan AÅŸaÄŸÄ±daki Karakteri Sil" ,0
  BD4.Getstring "metin2","...","",50
  if BD4.showmodal then
  dim saban
@@ -72,7 +64,7 @@ dim elif
  set o = .NewObject
  set p=.Newpoly
  TabNo = Netcad.CreateLayer (tabakam, 4)
- if SEL.SELECT("Ağırlık Merkezi Noktası Oluşturulacak Alanları Seçiniz",array(opline)) then ' istenen turleri kumeye ekle
+ if SEL.SELECT("AÄŸÄ±rlÄ±k Merkezi NoktasÄ± OluÅŸturulacak AlanlarÄ± SeÃ§iniz",array(opline)) then ' istenen turleri kumeye ekle
  for i = 0 to SEL.NE-1 ' kumenin her bir elemani icin
  elif=elif+1
  j = SEL.GetSelectedObject(i, o) ' objeyi ve gercek indeksini al
@@ -101,10 +93,10 @@ end if
 END with
 
 if elif=0 then
- msgbox ("Nokta üretimi yapılamadı"),64,"Harita Akademi, Şaban GÜL"
+ msgbox ("Nokta Ã¼retimi yapÄ±lamadÄ±"),64,"Harita Akademi, Åaban GÃœL"
  else
 
-msgbox ("Üretilen Nokta Sayısı: "& elif &chr(13)&chr(10)&" Noktalar " & tabakam & " tabakasına alındı." ),64,"Harita Akademi, Şaban GÜL"
+msgbox ("Ãœretilen Nokta SayÄ±sÄ±: "& elif &chr(13)&chr(10)&" Noktalar " & tabakam & " tabakasÄ±na alÄ±ndÄ±." ),64,"Harita Akademi, Åaban GÃœL"
  end if
 
 end sub
